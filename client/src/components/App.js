@@ -1,12 +1,20 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const pageOne = () => {
-  return <div>PageOne</div>;
+  return (
+    <div>
+      <Link to="/pagetwo">PageTwo</Link>
+    </div>
+  );
 };
 
 const pageTwo = () => {
-  return <div>PageTwo</div>;
+  return (
+    <div>
+      <Link to="/">PageOne</Link>
+    </div>
+  );
 };
 
 const App = () => {
@@ -14,6 +22,7 @@ const App = () => {
     <div>
       <BrowserRouter>
         <div>
+          {/* exact == exact={true} */}
           <Route path="/" exact component={pageOne} />
           <Route path="/pagetwo" exact component={pageTwo} />
         </div>
