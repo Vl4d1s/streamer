@@ -5,15 +5,24 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 class StreamCreate extends React.Component {
-  renderInpit(formProps) {
-    return <input {...formProps.input} />;
+  renderInpit({ input, label }) {
+    return (
+      <div className="field">
+        <label>{label}</label>
+        <input {...input} />
+      </div>
+    );
   }
 
   render() {
     return (
-      <form>
-        <Field name="title" component={this.renderInpit} />
-        <Field name="description" component={this.renderInpit} />
+      <form class="ui form">
+        <Field name="title" component={this.renderInpit} label="Enter Title" />
+        <Field
+          name="description"
+          component={this.renderInpit}
+          label="Enter Description"
+        />
       </form>
     );
   }
